@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  to-do-db:
+    image: mysql:8.0
+    container_name: to-do-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:  
+    - "3399:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Thispassword123*
+    networks:
+    - network-to-do
+    
+networks:
+  network-to-do:
+     external: true
