@@ -15,12 +15,22 @@ class Card(db.Model):
     name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text(), nullable=False)
     state = db.Column(db.Boolean(), nullable=False)
+
+    def toJSON(self):
+        return json.dumps(self, default=lambda o: o.__dict__, 
+            sort_keys=True, indent=4)
     
 @app.route("/api/card", methods=["GET"])
 def getAll():
     cards = Card.query.all()
-    return jsonify(cards)
+    print(cards)
+    return jsonify(json.dumps(cards))
 
+@app.route("/api/card/<id>", methods=["GET"])
+def get(id):
+    card = Card.query.get(id)
+    print(card)
+    return jsonify(card)
 
 @app.route("/api/card", methods=["POST"])
 def insert():
@@ -52,6 +62,18 @@ def update(id):
         print("Failed to update card")
         print(e)
         return jsonify(False)
-        
+
+@app.route("/api/card/<id>", methods=["DELETE"])
+def delete(id):
+    try:
+        card = Card.query.get(id)
+        db.session.delete(card)
+        db.session.commit()
+        return jsonify(True)
+    except Exception as e:
+        print("Failed to delete card")
+        print(e)
+        return jsonify(False)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
