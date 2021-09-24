@@ -10,16 +10,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+pymysql://root:Thispassword123*@l
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
-class Card(db.Model):
-    id = db.Column(db.Integer, unique=True, nullable=False, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    description = db.Column(db.Text(), nullable=False)
-    state = db.Column(db.Boolean(), nullable=False)
-
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, 
-            sort_keys=True, indent=4)
-    
 @app.route("/api/card", methods=["GET"])
 def getAll():
     cards = Card.query.all()
