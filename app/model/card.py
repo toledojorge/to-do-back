@@ -1,4 +1,4 @@
-from util.validations import validate_required
+from app.util.validations import validate_required
 from app import db
 
 class Card(db.Model):

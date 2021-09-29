@@ -1,4 +1,4 @@
-from util.exceptions import RequiredValueException, ValueLenghtException
+from app.util.exceptions import RequiredValueException, ValueLenghtException
 
 def validate_required(value, message):
     if value is None:

@@ -1,5 +1,5 @@
-from service.card_service import CardService
-from repository.card_repository import CardRepository
+from app.service.card_service import CardService
+from app.repository.card_repository import CardRepository
 from flask import jsonify
 from flask import Blueprint
 
