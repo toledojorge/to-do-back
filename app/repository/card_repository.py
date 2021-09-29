@@ -1,5 +1,5 @@
 from app import db
-from model.card import Card
+from app.model.card import Card
 
 class CardRepository:
 

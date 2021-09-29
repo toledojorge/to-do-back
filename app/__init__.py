@@ -8,7 +8,8 @@ def run(config):
     app.config.from_object(config)
     
     db.init_app(app)
-
+    registrar_blueprint(app)
+    
     app.run(host='0.0.0.0', port=5000, debug=True)
 
 def registrar_blueprint(app):
