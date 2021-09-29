@@ -1,13 +1,16 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 
 db = SQLAlchemy()
+ma = Marshmallow()
 
 def run(config):
     app = Flask(__name__)
     app.config.from_object(config)
     
     db.init_app(app)
+    ma.init_app(app)
     registrar_blueprint(app)
     
     app.run(host='0.0.0.0', port=5000, debug=True)
