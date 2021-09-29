@@ -18,18 +18,19 @@ def get(id: int):
 @card_bp.route("", methods=["POST"])
 def insert():
     body = request.get_json()
-    card = Card()
-    card.name = body['name']
-    card.description = body['description']
+    card = Card(id = None, 
+                name = body['name'], 
+                description = body['description'], 
+                state=None)
     return card_service.insert(card)
 
 @card_bp.route("<id>", methods=["PUT"])
 def update(id: int):
     body = request.get_json()
-    card = Card()
-    card.name = body['name']
-    card.description = body['description']
-    card.state = body['state']
+    card = Card(id = None, 
+            name = body['name'],
+            description = body['description'], 
+            state = body['state'])
     return card_service.update(card,id)
 
 @card_bp.route("<id>", methods=["DELETE"])
