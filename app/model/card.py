@@ -15,7 +15,7 @@ class Card(db.Model):
     def __init__(self, id, name, description, state):
         validate_required(name, self.MESSAGE_NAME_REQUIRED)
         validate_required(description, self.MESSAGE_DESCRIPTION_REQUIRED)
-        validate_required(state, self.MESSAGE_STATE_REQUIRED)
+        #validate_required(state, self.MESSAGE_STATE_REQUIRED)
 
         self.id = id
         self.name = name
