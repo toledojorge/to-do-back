@@ -3,7 +3,7 @@ from app.model.card import Card
 
 class CardRepository:
 
-    def getAll():
+    def get_all():
         cards = Card.query.all()
         return cards
 

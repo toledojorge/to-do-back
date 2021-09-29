@@ -5,8 +5,8 @@ class CardService:
     def __init__(self, card_repository):
         self.card_repository = card_repository
 
-    def getAll(self):
-        return self.card_repository.getAll()
+    def get_all(self):
+        return self.card_repository.get_all()
 
     def get(self, id: int):
         return self.card_repository.get(id)
