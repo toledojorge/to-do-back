@@ -1,6 +1,9 @@
 from flask import jsonify
 from api import api_bp
+from flask import Blueprint
 
-@api_bp.route('/test', methods=['GET'])
+card_bp = Blueprint('card', __name__, url_prefix='/burritos')                                                                    
+
+@card_bp.route('/test', methods=['GET'])
 def listar():
     return jsonify("test")
