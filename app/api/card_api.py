@@ -1,3 +1,4 @@
+from app.schema.card_schema import CardSchema
 from app.model.card import Card
 from app.service.card_service import CardService
 from app.repository.card_repository import CardRepository
@@ -9,7 +10,10 @@ card_service =  CardService(card_repository=card_repository)
 
 @card_bp.route("", methods=['GET'])
 def listar():
-    return jsonify(card_service.get_all())
+    cards_schema = CardSchema(many=True)
+    cards = card_service.get_all()
+    cards = cards_schema.dump(cards)
+    return jsonify(cards)
 
 @card_bp.route("<id>", methods=["GET"])
 def get(id: int):
