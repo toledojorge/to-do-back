@@ -18,7 +18,7 @@ def listar():
 @card_bp.route("<id>", methods=["GET"])
 def get(id: int):
     card_schema = CardSchema()
-    card = card_service.card_service.get(id)
+    card = card_service.get(id)
     card = card_schema.dump(card)
     return jsonify(card)
 
