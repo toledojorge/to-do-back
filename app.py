@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from api import api_bp
-from flask import jsonify
 
 app = Flask(__name__)
 app.register_blueprint(api_bp)
