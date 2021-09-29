@@ -17,7 +17,10 @@ def listar():
 
 @card_bp.route("<id>", methods=["GET"])
 def get(id: int):
-    return jsonify(card_service.get(id))
+    card_schema = CardSchema()
+    card = card_service.card_service.get(id)
+    card = card_schema.dump(card)
+    return jsonify(card)
 
 @card_bp.route("", methods=["POST"])
 def insert():
