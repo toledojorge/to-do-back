@@ -13,7 +13,6 @@ class CardRepository:
 
     def insert(card: Card):
         try:
-            card.state = False
             db.session.add(card)
             db.session.commit()
             return True
