@@ -1,4 +1,4 @@
 from app import run
 
 if __name__ == '__main__':    
-    run("config/local.py")
+    app = run("config/local.py")
