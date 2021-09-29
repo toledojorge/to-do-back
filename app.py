@@ -1,4 +1,5 @@
 from app import run
+from config import local
 
 if __name__ == '__main__':    
-    app = run("config/local.py")
+    run(local)

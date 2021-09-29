@@ -7,6 +7,6 @@ card_bp = Blueprint('card', __name__, url_prefix='/card')
 card_repository = CardRepository()
 card_service =  CardService(card_repository=card_repository)
 
-@card_bp.route('', methods=['GET'])
+@card_bp.route('/', methods=['GET'])
 def listar():
     return card_service.getAll()
