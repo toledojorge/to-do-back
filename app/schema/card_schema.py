@@ -1,5 +1,7 @@
 from app import ma
-
-class CardSchema(ma.Schema):
+from app.schema.person_schema import PersonSchema
+class CardSchema(ma.Schema):    
     class Meta:
-        fields = ('id','name','description','state')
+        fields = ('id','name','description','state','person')
+        
+    person = ma.Nested(PersonSchema)

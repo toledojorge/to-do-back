@@ -1,5 +1,6 @@
 from app.util.validations import validate_required
 from app import db
+from app.model.person import Person
 
 class Card(db.Model):
     __tablename__ = 'card'
@@ -12,7 +13,7 @@ class Card(db.Model):
     description = db.Column(db.Text(), nullable=False)
     state = db.Column(db.Boolean(), nullable=False)
     person_id = db.Column(db.Integer, db.ForeignKey('person.id'))
-    person = db.relationship("Person")
+    person = db.relationship(Person)
 
     def __init__(self, id, name, description, state, person_id):
         validate_required(name, self.MESSAGE_NAME_REQUIRED)
