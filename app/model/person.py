@@ -2,6 +2,7 @@ from app.util.validations import validate_required
 from app import db
 
 class Person(db.Model):
+    __tablename__ = 'person'
     MESSAGE_EMAIL_REQUIRED = "Email is required"
     MESSAGE_FIRST_NAME_REQUIRED = "First name is required"
     MESSAGE_LAST_NAME_REQUIRED = "Last name is required"

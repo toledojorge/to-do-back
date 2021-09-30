@@ -26,6 +26,7 @@ class CardRepository:
             old_card.name = card.name
             old_card.description = card.description
             old_card.state = card.state
+            old_card.person_id = card.person_id
             db.session.commit()
             return True
         except Exception as e:

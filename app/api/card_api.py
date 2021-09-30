@@ -28,7 +28,8 @@ def insert():
     card = Card(id = None, 
                 name = body['name'], 
                 description = body['description'], 
-                state=None)
+                state=None,
+                person_id = body['person_id'])
     return jsonify(card_service.insert(card))
 
 @card_bp.route("<id>", methods=["PUT"])
@@ -37,7 +38,8 @@ def update(id: int):
     card = Card(id = None, 
             name = body['name'],
             description = body['description'], 
-            state = body['state'])
+            state = body['state'],
+            person_id = body['person_id'])
     return jsonify(card_service.update(card,id))
 
 @card_bp.route("<id>", methods=["DELETE"])
