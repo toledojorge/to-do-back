@@ -5,10 +5,8 @@ from flask import Flask, request, jsonify
 from flask_mongoengine import MongoEngine
 
 app = Flask(__name__)
-app.config['MONGODB_SETTINGS'] = {
-    'db': 'testmongo',
-    'host': 'localhost',
-    'port': 27017
+app.config["MONGODB_SETTINGS"] = {
+    "host":'mongodb://tolbar123:Thispassword123*@localhost:27017/testmongo'
 }
 db = MongoEngine()
 db.init_app(app)
